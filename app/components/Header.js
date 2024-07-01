@@ -12,7 +12,9 @@ const Header = ({ keywords, removekeywords, removeAllKeywords }) => {
               <li key={id}>
                 {key}
                 <button className="close" onClick={() => removekeywords(key)}>
-                  <Image src={close} />
+                  &#x2716;
+                  {/* <Image src={close} alt="close icon" /> */}
+                  {/* <FontAwesomeIcon icon="fa-solid fa-xmark" /> */}
                 </button>
               </li>
             );
