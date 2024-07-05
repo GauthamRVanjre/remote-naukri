@@ -11,4 +11,7 @@ export type jobType = {
   applications: number;
   views: number;
   apply_url: string;
+  logo_url: string;
+  created_at: Date;
+  location: string;
 };

@@ -48,8 +48,8 @@ const JobsComponent: React.FC<JobsComponentProps> = ({
     <div className="jobs">
       {filteredData &&
         filteredData.map((job) => (
-          <div>Hello World</div>
-          // <JobComponent key={job.id} job={job} setKeywords={setKeywords} />
+          // <div>Hello World</div>
+          <JobComponent key={job.id} job={job} setKeywords={setKeywords} />
         ))}
     </div>
   );
