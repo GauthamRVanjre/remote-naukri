@@ -152,8 +152,10 @@ a:hover {
 }
 
 .part2 {
+  height: 120px;
+  width: 200px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: space-between;
 }
 
@@ -161,13 +163,35 @@ a:hover {
   margin-right: 1rem;
 }
 
+.apply_link {
+  color: hsl(180, 52%, 96%);
+  background-color: hsl(180, 29%, 50%);
+  padding: 0.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.apply_link:hover {
+  color: hsl(180, 29%, 50%);
+  background-color: hsl(180, 52%, 96%);
+}
+
 .part2span {
   background-color: hsl(180, 52%, 96%);
   color: hsl(180, 29%, 50%);
-  font-weight: 700;
   padding: 0.5rem;
-  border-radius: 5px;
   cursor: pointer;
+}
+
+.skills-container {
+  overflow-y: hidden;
+  overflow-x: scroll;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 10px;
 }
 
 .part2span:hover {
@@ -184,29 +208,35 @@ a:hover {
     flex-direction: column;
     align-items: flex-start;
     width: 72vw;
-    padding-bottom: 1rem;
+    flex-grow: 1;
   }
 
   .logo {
-    position: absolute;
-    top: -2rem;
+    top: 2rem;
   }
   .logo img {
-    width: 4rem;
+    width: 2rem;
     height: auto;
   }
 
   .part1 {
     flex-grow: 0;
-    padding: 1.3rem 0;
+    padding: 2rem 0;
   }
+
+  .mobile-height {
+    height: 150px;
+  }
+
   .part2 {
     border-top: 1px solid hsl(180, 8%, 52%);
     padding-top: 1rem;
-    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
   }
 
-  .part2span {
+  .part2span .apply_link {
     background-color: var(--background-color);
     color: var(--primary-color);
     font-weight: 700;
