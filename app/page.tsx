@@ -2,11 +2,11 @@
 import JobsComponent from "./components/JobsComponent";
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
-import { jobType } from "./utils/types";
+import { NaukriType, jobType } from "./utils/types";
 
 function App() {
   const [filterKeywords, setFilterKeywords] = useState<string[]>([]);
-  const [jobs, setJobs] = useState<jobType[]>([]);
+  const [jobs, setJobs] = useState<NaukriType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   const addFilterKeywords = (data: string) => {

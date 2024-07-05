@@ -1,11 +1,11 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import JobComponent from "./JobComponent";
 import React from "react";
-import { jobType } from "../utils/types";
+import { NaukriType, jobType } from "../utils/types";
 
 interface JobsComponentProps {
   keywords: string[];
-  jobs: jobType[];
+  jobs: NaukriType[];
   setKeywords: (data: string) => void;
 }
 
@@ -14,7 +14,7 @@ const JobsComponent: React.FC<JobsComponentProps> = ({
   keywords,
   setKeywords,
 }) => {
-  const [filteredData, setFilteredData] = useState<jobType[]>([]);
+  const [filteredData, setFilteredData] = useState<NaukriType[]>([]);
 
   // const modifiedData = () => {
   //   if (keywords.length > 0) {
@@ -49,7 +49,7 @@ const JobsComponent: React.FC<JobsComponentProps> = ({
       {filteredData &&
         filteredData.map((job) => (
           // <div>Hello World</div>
-          <JobComponent key={job.id} job={job} setKeywords={setKeywords} />
+          <JobComponent key={job.job_id} job={job} setKeywords={setKeywords} />
         ))}
     </div>
   );

@@ -2,16 +2,16 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   const API_KEY = process.env.API_KEY; // your api key
-  const LIMIT = 10;
-  const ACTIVE = true;
   const response = await fetch(
-    `https://api.crackeddevs.com/v1/get-jobs?limit=${LIMIT}&active=${ACTIVE}`,
+    `https://jsearch.p.rapidapi.com/search?query=developer%20in%20India&page=1&num_pages=20&date_posted=all&job_requirements=under_3_years_experience`,
     {
       headers: {
-        "api-key": `${API_KEY}`,
+        "x-rapidapi-key": `${API_KEY}`,
+        "x-rapidapi-host": "jsearch.p.rapidapi.com",
       },
     }
   );
   const data = await response.json();
-  return NextResponse.json(data);
+
+  return NextResponse.json(data.data);
 }
