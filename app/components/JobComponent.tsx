@@ -17,6 +17,7 @@ const JobComponent: React.FC<JobComponentProps> = ({ job, setKeywords }) => {
     job_id,
     job_apply_link,
     job_required_skills,
+    job_required_experience,
     // level,
     job_is_remote,
     job_city,
@@ -40,11 +41,13 @@ const JobComponent: React.FC<JobComponentProps> = ({ job, setKeywords }) => {
         <div className="part1">
           <div className="company">
             <span className="cname">{employer_name}</span>
-            {/* {props.job.new && <span className="new">new!</span>}
-            {props.job.featured && <span className="featured">featured!</span>} */}
           </div>
 
           <div className="position">{job_title}</div>
+          <div className="experience">
+            Experience: {job_required_experience.required_experience_in_months}{" "}
+            Months
+          </div>
 
           <div className="details">
             <span>{formatDate(job_posted_at_timestamp)}</span>

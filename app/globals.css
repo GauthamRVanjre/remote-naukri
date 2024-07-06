@@ -143,6 +143,10 @@ a:hover {
   cursor: pointer;
 }
 
+.experience {
+  margin-bottom: 1rem;
+}
+
 .position:hover {
   color: hsl(180, 29%, 50%);
 }
