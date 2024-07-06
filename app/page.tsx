@@ -25,7 +25,7 @@ function App() {
   };
 
   const getData = async () => {
-    await fetch("/api/crackeddevs")
+    await fetch("/api/fetchJobs")
       .then((response) => response.json())
       .then((data) => {
         console.log("data from api", data);
