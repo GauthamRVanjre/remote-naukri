@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+
+model Jobs{
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  job_id String
+  employer_name String
+  employer_logo String?
+  employer_website String?
+  employer_linkedin String?
+  job_employment_type String
+  job_title String
+  job_posted_at_timestamp BigInt?
+  job_apply_link String
+  job_description String?
+  job_is_remote Boolean
+  job_city String?
+  job_state String?
+  job_country String?
+  job_required_experience JobRequiredSkills?
+  job_required_skills String[]
+  job_min_salary Int?
+  job_max_salary Int?
+}
+
+type JobRequiredSkills {
+  no_experience_required String?
+  required_experience_in_months String?
+  experience_preferred String?
+}
