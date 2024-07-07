@@ -6,15 +6,13 @@ const Header = ({ keywords, removekeywords, removeAllKeywords }) => {
   return (
     <>
       <div className="header-container">
-        <ul>
+        {/* <ul>
           {keywords.map((key, id) => {
             return (
               <li key={id}>
                 {key}
                 <button className="close" onClick={() => removekeywords(key)}>
                   &#x2716;
-                  {/* <Image src={close} alt="close icon" /> */}
-                  {/* <FontAwesomeIcon icon="fa-solid fa-xmark" /> */}
                 </button>
               </li>
             );
@@ -22,7 +20,7 @@ const Header = ({ keywords, removekeywords, removeAllKeywords }) => {
           <a href="/" onClick={() => removeAllKeywords()}>
             Clear Filters
           </a>
-        </ul>
+        </ul> */}
       </div>
     </>
   );
