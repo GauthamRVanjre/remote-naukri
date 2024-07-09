@@ -60,13 +60,8 @@ function App() {
   return (
     <div>
       <div className="header"></div>
-      {/* {filterKeywords.length > 0 && (
-        <Header
-          keywords={filterKeywords}
-          removekeywords={deleteFilterKeywords}
-          removeAllKeywords={clearAllKeywords}
-        />
-      )} */}
+      <Header />
+
       {jobs && jobs.length > 0 && !loading && (
         <>
           <JobsComponent
