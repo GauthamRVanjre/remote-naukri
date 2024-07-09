@@ -2,7 +2,7 @@ import React from "react";
 import close from "../components/images/icon-remove.svg";
 import Image from "next/image";
 
-const Header = ({ keywords, removekeywords, removeAllKeywords }) => {
+const Header = ({ keywords, removekeywords, removeAllKeywords }: any) => {
   return (
     <>
       <div className="header-container">

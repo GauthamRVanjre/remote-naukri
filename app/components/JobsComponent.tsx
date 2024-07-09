@@ -36,9 +36,9 @@ const JobsComponent: React.FC<JobsComponentProps> = ({
   // setFilteredData(data);
 
   useEffect(() => {
-    console.log("data", jobs);
+    console.log("hit");
     setFilteredData(jobs);
-  }, []);
+  }, [jobs]);
 
   // useEffect(() => {
   //   modifiedData();

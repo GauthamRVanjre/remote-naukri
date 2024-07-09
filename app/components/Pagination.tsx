@@ -17,6 +17,7 @@ interface PaginationProps {
 
 const Pagination: React.FC<PaginationProps> = ({ pageState, setPageState }) => {
   const totalPages = Math.ceil(pageState.count / pageState.take);
+  const currentPage = Math.floor(pageState.skip / pageState.take) + 1;
 
   const goToFirstPage = () => {
     setPageState((prev) => ({ ...prev, skip: 0 }));
@@ -44,33 +45,26 @@ const Pagination: React.FC<PaginationProps> = ({ pageState, setPageState }) => {
     <div className="container">
       <nav aria-label="Page navigation example">
         <ul className="pagination">
-          <li className="page-item" onClick={goToFirstPage}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="icon"
-            ></svg>
-          </li>
+          {/* <li className="page-item" onClick={goToFirstPage}>
+            &laquo; First
+          </li> */}
           <li className="page-item" onClick={goToPreviousPage}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="icon"
-            ></svg>
+            &#60;
             <p>Previous</p>
           </li>
           <li className="page-input">
             <input
               type="number"
-              value={pageState.count}
+              value={currentPage}
               onChange={(e) => {
-                setPageState({
-                  count: parseInt(e.target.value, 10),
-                  skip: 0,
-                  take: pageState.take,
-                });
+                const pageNumber = Math.max(
+                  1,
+                  Math.min(totalPages, Number(e.target.value))
+                );
+                setPageState((prev) => ({
+                  ...prev,
+                  skip: (pageNumber - 1) * pageState.take,
+                }));
               }}
               className="page-number"
             />
@@ -79,21 +73,11 @@ const Pagination: React.FC<PaginationProps> = ({ pageState, setPageState }) => {
           <li>{totalPages}</li>
           <li className="page-item" onClick={goToNextPage}>
             <p>Next</p>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="icon"
-            ></svg>
+            &#62;
           </li>
-          <li className="page-item" onClick={goToLastPage}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="icon"
-            ></svg>
-          </li>
+          {/* <li className="page-item" onClick={goToLastPage}>
+            Last &raquo;
+          </li> */}
         </ul>
       </nav>
     </div>

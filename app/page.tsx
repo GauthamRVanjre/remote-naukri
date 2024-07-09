@@ -2,7 +2,7 @@
 import JobsComponent from "./components/JobsComponent";
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
-import { NaukriType, jobType } from "./utils/types";
+import { NaukriType } from "./utils/types";
 import Pagination from "./components/Pagination";
 
 function App() {
@@ -35,10 +35,15 @@ function App() {
   };
 
   const getData = async () => {
-    await fetch("/api/fetchJobs")
+    await fetch(`/api/fetchJobs?take=${pageState.take}&skip=${pageState.skip}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log("data from api", data);
+        setPageState({
+          count: data.count,
+          skip: pageState.skip,
+          take: pageState.take,
+        });
+        console.log("data of jobs", data.jobs);
         setJobs(data.jobs);
         setLoading(false);
       })
@@ -50,7 +55,7 @@ function App() {
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [pageState.count, pageState.skip]);
 
   return (
     <div>

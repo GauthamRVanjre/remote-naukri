@@ -264,7 +264,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1.5rem;
+  margin: 1.5rem 0;
 }
 
 .pagination {
@@ -289,6 +289,14 @@ a:hover {
   border-radius: 0.375rem;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
+}
+
+.page-input input {
+  margin-right: 10px;
+}
+
+.page-item p {
+  margin: 2px;
 }
 
 .page-item:hover {
