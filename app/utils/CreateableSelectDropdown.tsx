@@ -3,7 +3,7 @@ import CreatableSelect from "react-select/creatable";
 
 export interface Option {
   label: string;
-  value: string;
+  value: string | boolean;
 }
 
 interface CreateableSelectDropdownProps {

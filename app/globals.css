@@ -33,6 +33,32 @@
   position: relative;
 }
 
+.header-btn {
+  width: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: none;
+  margin: 0 0.5rem;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.header-input-text {
+  padding: 10px;
+  margin-right: 10px;
+  width: 350px;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 5px;
+  border: 1px solid #b9b0b0;
+}
+
+.header-input-text:focus {
+  border: none;
+  border: 1px solid rgb(21, 179, 219);
+}
+
 .select-dropdown {
   padding: 10px;
   font-size: 16px;

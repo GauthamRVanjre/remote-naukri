@@ -25,12 +25,7 @@ function App() {
     }
   };
 
-  const deleteFilterKeywords = (data: string) => {
-    const newKeywords = filterKeywords.filter((key) => key !== data);
-    setFilterKeywords(newKeywords);
-  };
-
-  const clearAllKeywords = () => {
+  const removeAllKeywords = () => {
     setFilterKeywords([]);
   };
 
@@ -60,7 +55,12 @@ function App() {
   return (
     <div>
       <div className="header"></div>
-      <Header />
+      <Header
+        loading={loading}
+        keywords={filterKeywords}
+        setKeywords={setFilterKeywords}
+        removeAllKeywords={removeAllKeywords}
+      />
 
       {jobs && jobs.length > 0 && !loading && (
         <>
