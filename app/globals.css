@@ -160,9 +160,14 @@ a:hover {
 .position {
   font-weight: 700;
   font-size: 1.1rem;
-  display: inline-block;
+  display: inline;
   padding: 0.7rem 0;
   cursor: pointer;
+}
+
+.position-style {
+  display: flex;
+  width: 50px;
 }
 
 .experience {

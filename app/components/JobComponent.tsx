@@ -26,6 +26,11 @@ const JobComponent: React.FC<JobComponentProps> = ({ job, setKeywords }) => {
     job_posted_at_timestamp,
   } = job;
 
+  const redirectToJobDetail = () => {
+    // console.log("redirect");
+    window.location.href = `job/${job_id}`;
+  };
+
   return (
     <>
       <div
@@ -43,10 +48,18 @@ const JobComponent: React.FC<JobComponentProps> = ({ job, setKeywords }) => {
             <span className="cname">{employer_name}</span>
           </div>
 
-          <div className="position">{job_title}</div>
+          <div className="position">
+            {/* <Link href="/">{job_title}</Link> */}
+            <span onClick={redirectToJobDetail} className="position-style">
+              {job_title}
+            </span>
+          </div>
+
           <div className="experience">
-            Experience: {job_required_experience.required_experience_in_months}{" "}
-            Months
+            <span>
+              Experience:{" "}
+              {job_required_experience.required_experience_in_months} Months
+            </span>
           </div>
 
           <div className="details">
