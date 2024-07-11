@@ -39,7 +39,7 @@ const page = ({ params }: { params: { id: string } }) => {
           onClick={() => (window.location.href = "/")}
           className="breadcrumb apply_link"
         >
-          Back
+          Find More Jobs
         </div>
         <div className="employer-details border-provider">
           <div>
