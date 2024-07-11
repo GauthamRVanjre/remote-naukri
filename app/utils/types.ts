@@ -24,7 +24,6 @@ export type NaukriType = {
   employer_linkedin: string;
   job_employment_type: string;
   job_title: string;
-  job_posted_at_timestamp: Date;
   job_apply_link: string;
   job_description: string;
   job_is_remote: boolean;
