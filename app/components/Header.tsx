@@ -5,8 +5,20 @@ import CreateableSelectDropdown, {
 
 interface HeaderProps {
   loading: boolean;
-  keywords: string[];
-  setKeywords: Dispatch<SetStateAction<string[]>>;
+  keywords: {
+    searchValue: string;
+    experienceValue: string | undefined | boolean;
+    locationValue: boolean | undefined | string;
+    employementTypeValue: string | undefined | boolean;
+  };
+  setKeywords: Dispatch<
+    SetStateAction<{
+      searchValue: string;
+      experienceValue: string | undefined | boolean;
+      locationValue: boolean | undefined | string;
+      employementTypeValue: string | undefined | boolean;
+    }>
+  >;
   removeAllKeywords: () => void;
 }
 
@@ -28,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({
   const [searchValue, setSearchValue] = useState<string>("");
 
   const experienceOptions = [
-    { label: "freshers", value: "Freshers" },
+    { label: "freshers", value: "" },
     { label: "12", value: "12" },
     { label: "24", value: "24" },
   ];
@@ -44,6 +56,14 @@ const Header: React.FC<HeaderProps> = ({
     { label: "PARTTIME", value: "PARTTIME" },
     { label: "INTERN", value: "INTERN" },
   ];
+
+  const clearAll = () => {
+    setSearchValue("");
+    removeAllKeywords();
+    // setemploymentTypeValue({ label: "", value: "" });
+    // setExperienceValue({ label: "", value: "" });
+    // setLocationValue({ label: "", value: false });
+  };
 
   return (
     <>
@@ -80,17 +100,21 @@ const Header: React.FC<HeaderProps> = ({
 
           <button
             className="header-btn apply_link"
-            onClick={() => setKeywords([])}
+            onClick={() =>
+              setKeywords({
+                searchValue: searchValue,
+                experienceValue: experienceValue?.value,
+                employementTypeValue: employmentTypeValue?.value,
+                locationValue: locationValue?.value,
+              })
+            }
           >
             Submit
           </button>
 
-          <button
-            className="header-btn apply_link"
-            onClick={() => removeAllKeywords()}
-          >
+          {/* <button className="header-btn apply_link" onClick={() => clearAll()}>
             Clear
-          </button>
+          </button> */}
         </ul>
       </div>
     </>

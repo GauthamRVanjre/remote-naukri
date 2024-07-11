@@ -6,7 +6,17 @@ import { NaukriType } from "./utils/types";
 import Pagination from "./components/Pagination";
 
 function App() {
-  const [filterKeywords, setFilterKeywords] = useState<string[]>([]);
+  const [filterKeywords, setFilterKeywords] = useState<{
+    searchValue: string;
+    experienceValue: string | undefined | boolean;
+    locationValue: boolean | undefined | string;
+    employementTypeValue: string | undefined | boolean;
+  }>({
+    employementTypeValue: "",
+    experienceValue: "",
+    locationValue: undefined,
+    searchValue: "",
+  });
   const [jobs, setJobs] = useState<NaukriType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [pageState, setPageState] = useState<{
@@ -19,18 +29,21 @@ function App() {
     take: 10,
   });
 
-  const addFilterKeywords = (data: string) => {
-    if (!filterKeywords.includes(data)) {
-      setFilterKeywords([...filterKeywords, data]);
-    }
+  const removeAllKeywords = () => {
+    setFilterKeywords({
+      employementTypeValue: "",
+      experienceValue: "",
+      locationValue: undefined,
+      searchValue: "",
+    });
   };
 
-  const removeAllKeywords = () => {
-    setFilterKeywords([]);
-  };
+  console.log("keywords", filterKeywords);
 
   const getData = async () => {
-    await fetch(`/api/fetchJobs?take=${pageState.take}&skip=${pageState.skip}`)
+    await fetch(`/api/fetchJobs?take=${pageState.take}&skip=${pageState.skip}&employementType=${filterKeywords.employementTypeValue}
+        &experienceValue=${filterKeywords.experienceValue}&location=${filterKeywords.locationValue}&searchValue=${filterKeywords.searchValue}
+      `)
       .then((response) => response.json())
       .then((data) => {
         setPageState({
@@ -50,7 +63,7 @@ function App() {
 
   useEffect(() => {
     getData();
-  }, [pageState.count, pageState.skip]);
+  }, [pageState.count, pageState.skip, filterKeywords]);
 
   return (
     <div>
@@ -64,11 +77,7 @@ function App() {
 
       {jobs && jobs.length > 0 && !loading && (
         <>
-          <JobsComponent
-            keywords={filterKeywords}
-            jobs={jobs}
-            setKeywords={addFilterKeywords}
-          />
+          <JobsComponent jobs={jobs} />
         </>
       )}
       <Pagination pageState={pageState} setPageState={setPageState} />

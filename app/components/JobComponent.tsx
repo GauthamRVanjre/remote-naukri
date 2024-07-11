@@ -1,15 +1,12 @@
-import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { NaukriType } from "../utils/types";
-import { formatDate } from "../utils/formatDate";
 
 interface JobComponentProps {
   job: NaukriType;
-  setKeywords: (data: string) => void;
 }
 
-const JobComponent: React.FC<JobComponentProps> = ({ job, setKeywords }) => {
+const JobComponent: React.FC<JobComponentProps> = ({ job }) => {
   const {
     employer_name,
     job_employment_type,

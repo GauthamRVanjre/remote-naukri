@@ -4,16 +4,10 @@ import React from "react";
 import { NaukriType, jobType } from "../utils/types";
 
 interface JobsComponentProps {
-  keywords: string[];
   jobs: NaukriType[];
-  setKeywords: (data: string) => void;
 }
 
-const JobsComponent: React.FC<JobsComponentProps> = ({
-  jobs,
-  keywords,
-  setKeywords,
-}) => {
+const JobsComponent: React.FC<JobsComponentProps> = ({ jobs }) => {
   const [filteredData, setFilteredData] = useState<NaukriType[]>([]);
 
   // const modifiedData = () => {
@@ -49,7 +43,7 @@ const JobsComponent: React.FC<JobsComponentProps> = ({
       {filteredData &&
         filteredData.map((job) => (
           // <div>Hello World</div>
-          <JobComponent key={job.job_id} job={job} setKeywords={setKeywords} />
+          <JobComponent key={job.job_id} job={job} />
         ))}
     </div>
   );
