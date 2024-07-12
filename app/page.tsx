@@ -14,7 +14,7 @@ function App() {
   }>({
     employementTypeValue: "",
     experienceValue: "",
-    locationValue: undefined,
+    locationValue: "",
     searchValue: "",
   });
   const [jobs, setJobs] = useState<NaukriType[]>([]);
@@ -33,7 +33,7 @@ function App() {
     setFilterKeywords({
       employementTypeValue: "",
       experienceValue: "",
-      locationValue: undefined,
+      locationValue: "",
       searchValue: "",
     });
   };
@@ -62,6 +62,7 @@ function App() {
   };
 
   useEffect(() => {
+    console.log("useEffect hit");
     getData();
   }, [pageState.count, pageState.skip, filterKeywords]);
 

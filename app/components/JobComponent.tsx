@@ -52,16 +52,11 @@ const JobComponent: React.FC<JobComponentProps> = ({ job }) => {
           </div>
 
           <div className="experience">
-            <span>
-              Experience:{" "}
-              {job_required_experience.required_experience_in_months} Months
-            </span>
+            <span>Experience: {job_required_experience} Months</span>
           </div>
 
           <div className="details">
-            <span>
-              {job_required_experience.required_experience_in_months} months
-            </span>
+            <span>{job_required_experience} months</span>
             <span>&nbsp;•&nbsp;</span>
             <span>{job_employment_type}</span>
             <span>&nbsp;•&nbsp;</span>

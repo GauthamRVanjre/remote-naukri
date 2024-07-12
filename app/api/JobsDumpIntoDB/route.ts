@@ -1,4 +1,4 @@
-import { NaukriType } from "@/app/utils/types";
+import { NaukriTypeFromAPI } from "@/app/utils/types";
 import prisma from "@/prisma/prisma";
 import { NextResponse } from "next/server";
 
@@ -15,7 +15,7 @@ export async function GET() {
       }
     );
     const data = await response.json();
-    const jobs: NaukriType[] = data.data;
+    const jobs: NaukriTypeFromAPI[] = data.data;
 
     const existingJobs = await prisma.jobs.count();
     console.log("existing jobs: " + existingJobs);
@@ -41,14 +41,16 @@ export async function GET() {
           job_city: job.job_city || "",
           job_state: job.job_state || "",
           job_country: job.job_country || "",
-          job_required_experience: {
-            no_experience_required:
-              job.job_required_experience.no_experience_required || "",
-            required_experience_in_months:
-              job.job_required_experience.required_experience_in_months || "",
-            experience_preferred:
-              job.job_required_experience.experience_preferred || "",
-          },
+          // job_required_experience: {
+          //   no_experience_required:
+          //     job.job_required_experience.no_experience_required || "",
+          //   required_experience_in_months:
+          //     job.job_required_experience.required_experience_in_months || "",
+          //   experience_preferred:
+          //     job.job_required_experience.experience_preferred || "",
+          // },
+          job_required_experience:
+            job.job_required_experience.required_experience_in_months,
           job_required_skills: job.job_required_skills
             ? job.job_required_skills
             : [],

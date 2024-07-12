@@ -73,7 +73,7 @@ const Header: React.FC<HeaderProps> = ({
             type="text"
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
-            placeholder="Search By company name or role name"
+            placeholder="Search By company/ skills/ role"
             className="header-input-text"
           />
 
@@ -102,10 +102,10 @@ const Header: React.FC<HeaderProps> = ({
             className="header-btn apply_link"
             onClick={() =>
               setKeywords({
-                searchValue: searchValue,
-                experienceValue: experienceValue?.value,
-                employementTypeValue: employmentTypeValue?.value,
-                locationValue: locationValue?.value,
+                searchValue: searchValue || "",
+                experienceValue: experienceValue?.value || "",
+                employementTypeValue: employmentTypeValue?.value || "",
+                locationValue: locationValue?.value || "",
               })
             }
           >

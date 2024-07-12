@@ -13,8 +13,9 @@ export async function GET(req: Request) {
   try {
     let whereClause: any = {};
 
-    if (location !== "undefined") {
-      whereClause.job_is_remote = location;
+    console.log("location", location);
+    if (location !== "") {
+      whereClause.job_is_remote = Boolean(location);
     }
 
     if (searchValue) {
@@ -34,26 +35,23 @@ export async function GET(req: Request) {
       ];
     }
 
-    if (employementType !== "undefined") {
+    if (employementType !== "") {
       whereClause.job_employment_type = employementType;
     }
 
-    if (experienceValue !== "undefined") {
-      whereClause.job_required_experience = {
-        required_experience_in_months: experienceValue,
-      };
+    if (experienceValue !== "") {
+      whereClause.job_required_experience = experienceValue;
     }
-
-    console.log(whereClause);
     let jobs;
     let jobsCount;
-    jobsCount = await prisma.jobs.count({
-      where: whereClause,
-    });
-    if (whereClause) {
+
+    if (Object.keys(whereClause).length > 0) {
       jobs = await prisma.jobs.findMany({
         skip,
         take,
+        where: whereClause,
+      });
+      jobsCount = await prisma.jobs.count({
         where: whereClause,
       });
     } else {
@@ -61,9 +59,8 @@ export async function GET(req: Request) {
         skip,
         take,
       });
+      jobsCount = await prisma.jobs.count();
     }
-
-    // console.log(jobs);
 
     return NextResponse.json({ jobs, count: jobsCount }, { status: 200 });
   } catch (error) {

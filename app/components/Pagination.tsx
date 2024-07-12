@@ -18,6 +18,7 @@ interface PaginationProps {
 const Pagination: React.FC<PaginationProps> = ({ pageState, setPageState }) => {
   const totalPages = Math.ceil(pageState.count / pageState.take);
   const currentPage = Math.floor(pageState.skip / pageState.take) + 1;
+  console.log("currentPage: " + currentPage);
 
   const goToFirstPage = () => {
     setPageState((prev) => ({ ...prev, skip: 0 }));
@@ -53,7 +54,7 @@ const Pagination: React.FC<PaginationProps> = ({ pageState, setPageState }) => {
             <p>Previous</p>
           </li>
           <li className="page-input">
-            <input
+            {/* <input
               type="number"
               value={currentPage}
               onChange={(e) => {
@@ -67,7 +68,8 @@ const Pagination: React.FC<PaginationProps> = ({ pageState, setPageState }) => {
                 }));
               }}
               className="page-number"
-            />
+            /> */}
+            <div className="page-number">{currentPage}</div>
             <p>of</p>
           </li>
           <li>{totalPages}</li>

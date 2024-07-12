@@ -30,14 +30,9 @@ model Jobs{
   job_city String?
   job_state String?
   job_country String?
-  job_required_experience JobRequiredSkills?
+  job_required_experience String?
+
   job_required_skills String[]
   job_min_salary Int?
   job_max_salary Int?
-}
-
-type JobRequiredSkills {
-  no_experience_required String?
-  required_experience_in_months String?
-  experience_preferred String?
 }

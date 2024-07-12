@@ -60,15 +60,10 @@ const page = ({ params }: { params: { id: string } }) => {
               <div className="details">
                 <span>
                   {jobData?.job_required_experience
-                    .required_experience_in_months
                     ? jobData?.job_required_experience
-                        .required_experience_in_months
                     : "Freshers"}{" "}
                   <span>
-                    {jobData?.job_required_experience
-                      .required_experience_in_months
-                      ? "months"
-                      : ""}
+                    {jobData?.job_required_experience ? "months" : ""}
                   </span>
                 </span>
                 <span>&nbsp;•&nbsp;</span>

@@ -300,7 +300,7 @@ a:hover {
   list-style-type: none;
   padding: 2rem;
   background-color: white;
-  border: 1px solid #4b5563;
+  border: 1px solid #c8cbd3;
   height: 2rem;
   font-size: 0.875rem;
 }
@@ -357,8 +357,9 @@ a:hover {
   width: 2rem;
   text-align: center;
   background-color: white;
-  border: 1px solid #4b5563;
+  /* border: 1px solid #4b5563; */
   padding-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 /* details page */
