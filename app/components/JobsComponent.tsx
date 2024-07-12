@@ -1,7 +1,7 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import JobComponent from "./JobComponent";
 import React from "react";
-import { NaukriType, jobType } from "../utils/types";
+import { NaukriType } from "../utils/types";
 
 interface JobsComponentProps {
   jobs: NaukriType[];
