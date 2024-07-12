@@ -69,34 +69,43 @@ const Header: React.FC<HeaderProps> = ({
     <>
       <div className="header-container">
         <ul>
-          <input
-            type="text"
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-            placeholder="Search By company/ skills/ role"
-            className="header-input-text"
-          />
+          <li>
+            <input
+              type="text"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              placeholder="Search By company / skills/ role"
+              className="header-input-text"
+              disabled={loading}
+            />
+          </li>
 
-          <CreateableSelectDropdown
-            isLoading={false}
-            options={experienceOptions}
-            value={experienceValue}
-            setValue={setExperienceValue}
-          />
+          <li>
+            <CreateableSelectDropdown
+              isLoading={loading}
+              options={experienceOptions}
+              value={experienceValue}
+              setValue={setExperienceValue}
+            />
+          </li>
 
-          <CreateableSelectDropdown
-            isLoading={false}
-            options={locationOptions}
-            value={locationValue}
-            setValue={setLocationValue}
-          />
+          <li>
+            <CreateableSelectDropdown
+              isLoading={loading}
+              options={locationOptions}
+              value={locationValue}
+              setValue={setLocationValue}
+            />
+          </li>
 
-          <CreateableSelectDropdown
-            isLoading={false}
-            options={employmentTypeOptions}
-            value={employmentTypeValue}
-            setValue={setemploymentTypeValue}
-          />
+          <li>
+            <CreateableSelectDropdown
+              isLoading={loading}
+              options={employmentTypeOptions}
+              value={employmentTypeValue}
+              setValue={setemploymentTypeValue}
+            />
+          </li>
 
           <button
             className="header-btn apply_link"
@@ -108,6 +117,7 @@ const Header: React.FC<HeaderProps> = ({
                 locationValue: locationValue?.value || "",
               })
             }
+            disabled={loading}
           >
             Submit
           </button>

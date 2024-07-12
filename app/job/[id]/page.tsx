@@ -66,9 +66,9 @@ const page = ({ params }: { params: { id: string } }) => {
                     {jobData?.job_required_experience ? "months" : ""}
                   </span>
                 </span>
-                <span>&nbsp;•&nbsp;</span>
+                <span className="details-dots">•</span>
                 <span>{jobData?.job_employment_type}</span>
-                <span>&nbsp;•&nbsp;</span>
+                <span className="details-dots">•</span>
                 <span>
                   {jobData?.job_is_remote ? "Remote" : jobData?.job_city}
                 </span>

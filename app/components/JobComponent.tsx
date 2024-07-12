@@ -57,9 +57,9 @@ const JobComponent: React.FC<JobComponentProps> = ({ job }) => {
 
           <div className="details">
             <span>{job_required_experience} months</span>
-            <span>&nbsp;•&nbsp;</span>
+            <span className="details-dots">•</span>
             <span>{job_employment_type}</span>
-            <span>&nbsp;•&nbsp;</span>
+            <span className="details-dots">•</span>
             <span>{job_is_remote ? "Remote" : job_city}</span>
           </div>
         </div>

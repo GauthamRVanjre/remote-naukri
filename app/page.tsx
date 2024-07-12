@@ -41,6 +41,7 @@ function App() {
   console.log("keywords", filterKeywords);
 
   const getData = async () => {
+    setLoading(true);
     await fetch(`/api/fetchJobs?take=${pageState.take}&skip=${pageState.skip}&employementType=${filterKeywords.employementTypeValue}
         &experienceValue=${filterKeywords.experienceValue}&location=${filterKeywords.locationValue}&searchValue=${filterKeywords.searchValue}
       `)
@@ -76,12 +77,19 @@ function App() {
         removeAllKeywords={removeAllKeywords}
       />
 
+      {loading && (
+        <>
+          <div className="loader">
+            <p>Loading...</p>
+          </div>
+        </>
+      )}
       {jobs && jobs.length > 0 && !loading && (
         <>
           <JobsComponent jobs={jobs} />
+          <Pagination pageState={pageState} setPageState={setPageState} />
         </>
       )}
-      <Pagination pageState={pageState} setPageState={setPageState} />
     </div>
   );
 }

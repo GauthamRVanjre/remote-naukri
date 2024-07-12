@@ -12,8 +12,6 @@ export async function GET(req: Request) {
 
   try {
     let whereClause: any = {};
-
-    console.log("location", location);
     if (location !== "") {
       whereClause.job_is_remote = Boolean(location);
     }
