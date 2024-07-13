@@ -79,6 +79,7 @@ const page = ({ params }: { params: { id: string } }) => {
                 href={jobData ? jobData.job_apply_link : "/"}
                 target="_blank"
                 className="apply_link"
+                rel="noopener noreferrer"
               >
                 Apply Now
               </Link>

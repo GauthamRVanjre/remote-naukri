@@ -65,7 +65,12 @@ const JobComponent: React.FC<JobComponentProps> = ({ job }) => {
         </div>
         <div className={`part2 ${job_required_skills ? "mobile-height" : ""}`}>
           <div className="apply_link_btn_container">
-            <Link href={job_apply_link} target="_blank" className="apply_link">
+            <Link
+              href={job_apply_link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="apply_link"
+            >
               Apply Now
             </Link>
           </div>
