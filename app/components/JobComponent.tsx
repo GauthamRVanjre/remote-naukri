@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { NaukriType } from "../utils/types";
+import { isValidUrl } from "../utils/urlParser";
 
 interface JobComponentProps {
   job: NaukriType;
@@ -66,7 +67,7 @@ const JobComponent: React.FC<JobComponentProps> = ({ job }) => {
         <div className={`part2 ${job_required_skills ? "mobile-height" : ""}`}>
           <div className="apply_link_btn_container">
             <Link
-              href={job_apply_link}
+              href={isValidUrl(job_apply_link) ? job_apply_link : "/"}
               target="_blank"
               rel="noopener noreferrer"
               className="apply_link"

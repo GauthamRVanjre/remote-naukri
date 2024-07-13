@@ -1,5 +1,6 @@
 "use client";
 import { NaukriType } from "@/app/utils/types";
+import { isValidUrl } from "@/app/utils/urlParser";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
@@ -76,7 +77,11 @@ const page = ({ params }: { params: { id: string } }) => {
 
             <div className="employer-links">
               <Link
-                href={jobData ? jobData.job_apply_link : "/"}
+                href={
+                  jobData && isValidUrl(jobData.job_apply_link)
+                    ? jobData.job_apply_link
+                    : "/"
+                }
                 target="_blank"
                 className="apply_link"
                 rel="noopener noreferrer"
