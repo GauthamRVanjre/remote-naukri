@@ -472,6 +472,7 @@ a:hover {
 
   /* details page styles */
   .employer-details {
+    max-width: 490px;
     width: 100%;
     margin: 0 0.5rem;
     flex-direction: column;
@@ -483,5 +484,16 @@ a:hover {
 
   .employer-links a {
     margin-top: 100px;
+  }
+
+  .breadcrumb {
+    margin: 10px;
+  }
+
+  .job-detail-layout {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    margin: 10px 10px;
   }
 }

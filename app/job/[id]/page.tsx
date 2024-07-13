@@ -1,5 +1,4 @@
 "use client";
-import { formatDate } from "@/app/utils/formatDate";
 import { NaukriType } from "@/app/utils/types";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
