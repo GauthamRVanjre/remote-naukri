@@ -472,7 +472,7 @@ a:hover {
 
   /* details page styles */
   .employer-details {
-    max-width: 490px;
+    max-width: 400px;
     width: 100%;
     margin: 0 0.5rem;
     flex-direction: column;
