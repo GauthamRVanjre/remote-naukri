@@ -86,6 +86,7 @@ const Header: React.FC<HeaderProps> = ({
               options={experienceOptions}
               value={experienceValue}
               setValue={setExperienceValue}
+              placeholder="Experience"
             />
           </li>
 
@@ -95,6 +96,7 @@ const Header: React.FC<HeaderProps> = ({
               options={locationOptions}
               value={locationValue}
               setValue={setLocationValue}
+              placeholder="Location"
             />
           </li>
 
@@ -104,6 +106,7 @@ const Header: React.FC<HeaderProps> = ({
               options={employmentTypeOptions}
               value={employmentTypeValue}
               setValue={setemploymentTypeValue}
+              placeholder="Employment Type"
             />
           </li>
 

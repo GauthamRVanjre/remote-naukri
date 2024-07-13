@@ -84,6 +84,13 @@ function App() {
           </div>
         </>
       )}
+
+      {!loading && !jobs && (
+        <div className="loader">
+          <p>No Jobs Found</p>
+        </div>
+      )}
+
       {jobs && jobs.length > 0 && !loading && (
         <>
           <JobsComponent jobs={jobs} />

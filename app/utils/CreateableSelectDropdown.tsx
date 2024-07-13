@@ -11,6 +11,7 @@ interface CreateableSelectDropdownProps {
   isLoading: boolean;
   value: Option | null | undefined;
   setValue: Dispatch<SetStateAction<Option | null | undefined>>;
+  placeholder: string;
 }
 
 const CreateableSelectDropdown: React.FC<CreateableSelectDropdownProps> = ({
@@ -18,6 +19,7 @@ const CreateableSelectDropdown: React.FC<CreateableSelectDropdownProps> = ({
   isLoading,
   value,
   setValue,
+  placeholder,
 }) => {
   const colourStyles = {
     control: (styles: any) => ({
@@ -52,7 +54,7 @@ const CreateableSelectDropdown: React.FC<CreateableSelectDropdownProps> = ({
     <CreatableSelect
       styles={colourStyles}
       isDisabled={isLoading}
-      placeholder="Experience"
+      placeholder={placeholder}
       isClearable
       onChange={(newValue) => setValue(newValue)}
       value={value}
