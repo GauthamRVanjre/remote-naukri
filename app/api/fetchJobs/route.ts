@@ -48,6 +48,9 @@ export async function GET(req: Request) {
         skip,
         take,
         where: whereClause,
+        orderBy: {
+          job_posted_at_timestamp: "desc",
+        },
       });
       jobsCount = await prisma.jobs.count({
         where: whereClause,
@@ -56,6 +59,9 @@ export async function GET(req: Request) {
       jobs = await prisma.jobs.findMany({
         skip,
         take,
+        orderBy: {
+          job_posted_at_timestamp: "desc",
+        },
       });
       jobsCount = await prisma.jobs.count();
     }

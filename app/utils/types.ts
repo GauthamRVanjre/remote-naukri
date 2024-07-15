@@ -10,6 +10,7 @@ export type NaukriTypeFromAPI = {
   job_description: string;
   job_is_remote: boolean;
   job_city: string;
+  job_posted_at_timestamp: Date;
   job_state: string;
   job_country: string;
   job_required_experience: {
