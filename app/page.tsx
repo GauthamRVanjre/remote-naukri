@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import { NaukriType } from "./utils/types";
 import Pagination from "./components/Pagination";
+import AdBanner from "./components/AdBanner";
 
 function App() {
   const [filterKeywords, setFilterKeywords] = useState<{
@@ -76,6 +77,22 @@ function App() {
         setKeywords={setFilterKeywords}
         removeAllKeywords={removeAllKeywords}
       />
+
+      <div
+        style={{
+          background: "black",
+          marginTop: "50px",
+
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <AdBanner
+          dataAdFormat="auto"
+          dataFullWidthResponsive={true}
+          dataAdSlot="8404868237"
+        />
+      </div>
 
       {loading && (
         <>
