@@ -80,11 +80,7 @@ function App() {
 
       <div
         style={{
-          background: "black",
           marginTop: "50px",
-
-          // display: "flex",
-          // justifyContent: "center",
         }}
       >
         <AdBanner
