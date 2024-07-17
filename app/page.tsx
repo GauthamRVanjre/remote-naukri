@@ -83,8 +83,8 @@ function App() {
           background: "black",
           marginTop: "50px",
 
-          display: "flex",
-          justifyContent: "center",
+          // display: "flex",
+          // justifyContent: "center",
         }}
       >
         <AdBanner
