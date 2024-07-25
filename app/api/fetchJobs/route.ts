@@ -5,10 +5,10 @@ export async function GET(req: Request) {
   const url = new URL(req.url).searchParams;
   const skip = Number(url.get("skip")) || 0;
   const take = Number(url.get("take")) || 10;
-  const employementType = url.get("employementType")?.trim();
-  const experienceValue = url.get("experienceValue");
-  const location = url.get("location"); //done
-  const searchValue = url.get("searchValue"); // done
+  const employementType = url.get("employementType")?.trim() || "";
+  const experienceValue = url.get("experienceValue") || "";
+  const location = url.get("location") || ""; //done
+  const searchValue = url.get("searchValue") || ""; // done
 
   try {
     let whereClause: any = {};
